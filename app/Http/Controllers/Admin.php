@@ -107,6 +107,8 @@ class Admin extends Controller
 		File::delete('public/uploads/dokumen/pembayaran/'.$data['data']->file_pembayaran);
 		File::delete('public/uploads/dokumen/foto/'.$data['data']->file_foto);
 		File::delete('public/uploads/dokumen/ktp/'.$data['data']->file_ktp);
+		File::delete('public/uploads/dokumen/formulir/'.$data['data']->file_formulir);
+		File::delete('public/uploads/dokumen/pernyataan/'.$data['data']->file_pernyataan);
 
 		$result=M_admin::pmb_hapus($id);
 		
@@ -130,6 +132,8 @@ class Admin extends Controller
 			File::delete('public/uploads/dokumen/pembayaran/'.$valuePmb->file_pembayaran);
 			File::delete('public/uploads/dokumen/foto/'.$valuePmb->file_foto);
 			File::delete('public/uploads/dokumen/ktp/'.$valuePmb->file_ktp);
+			File::delete('public/uploads/dokumen/formulir/'.$valuePmb->file_formulir);
+			File::delete('public/uploads/dokumen/pernyataan/'.$valuePmb->file_pernyataan);
 
 			M_admin::pmb_hapus($valuePmb->id_pendaftar);
 		}

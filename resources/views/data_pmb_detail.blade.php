@@ -96,6 +96,12 @@
 										
 										: <a href="{{ asset('uploads/dokumen/formulir') }}/{{ $data['data']->file_formulir }}" download class="btn btn-primary btn-sm">Unduh</a>
 									</li>
+
+									<li class="list-group-item d-flex align-items-center flex-wrap">
+										<h6 class="mb-0 col-lg-4">Surat Pernyataan Mahasiswa Baru </h6>
+										
+										: <a href="{{ asset('uploads/dokumen/pernyataan') }}/{{ $data['data']->file_pernyataan }}" download class="btn btn-primary btn-sm">Unduh</a>
+									</li>
 									
 									<li class="list-group-item d-flex align-items-center flex-wrap">
 										<h6 class="mb-0 col-lg-4">Pembayaran </h6>

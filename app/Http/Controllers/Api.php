@@ -121,8 +121,10 @@ class Api extends Controller
 
 		$nama_file_formulir = 'Formulir_'.str_replace(' ', '-', $nama_lengkap).'_'.$id_gelombang.'_'. date('YmdHis').'.'.$request->file('formulir')->getClientOriginalExtension();
 
+		$nama_file_pernyataan = 'Surat_Pernyataan_MABA_'.str_replace(' ', '-', $nama_lengkap).'_'.$id_gelombang.'_'. date('YmdHis').'.'.$request->file('formulir')->getClientOriginalExtension();
 
-		$data = array( 'id_gelombang'=> $id_gelombang, 'nama'=> $nama_lengkap, 'tempat_lahir'=> $tempat_lahir, 'tanggal_lahir'=> $tanggal_lahir, 'alamat'=> $alamat, 'provinsi'=> $provinsi, 'kota'=> $kota, 'kecamatan'=> $kecamatan, 'pos'=> $kode_pos, 'telepon'=> $telepon, 'whatsapp'=> $whatsapp, 'email'=> $email, 'jurusan'=> $jurusan, 'konsentrasi'=> $konsentrasi, 'file_ijazah'=> $nama_file_ijazah , 'file_transkip'=> $nama_file_transkip , 'file_toefl'=> $nama_file_toefl , 'file_pembayaran'=> $nama_file_pembayaran, 'file_foto'=> $nama_file_foto , 'file_ktp'=> $nama_file_ktp ,'file_formulir'=> $nama_file_formulir , 'tanggal_input'=> date('Y-m-d'), 'time'=> date('H:i:s'));
+
+		$data = array( 'id_gelombang'=> $id_gelombang, 'nama'=> $nama_lengkap, 'tempat_lahir'=> $tempat_lahir, 'tanggal_lahir'=> $tanggal_lahir, 'alamat'=> $alamat, 'provinsi'=> $provinsi, 'kota'=> $kota, 'kecamatan'=> $kecamatan, 'pos'=> $kode_pos, 'telepon'=> $telepon, 'whatsapp'=> $whatsapp, 'email'=> $email, 'jurusan'=> $jurusan, 'konsentrasi'=> $konsentrasi, 'file_ijazah'=> $nama_file_ijazah , 'file_transkip'=> $nama_file_transkip , 'file_toefl'=> $nama_file_toefl , 'file_pembayaran'=> $nama_file_pembayaran, 'file_foto'=> $nama_file_foto , 'file_ktp'=> $nama_file_ktp ,'file_formulir'=> $nama_file_formulir, 'file_pernyataan'=> $nama_file_pernyataan, 'tanggal_input'=> date('Y-m-d'), 'time'=> date('H:i:s'));
 
 		$save = M_api::simpan_pendaftaran($data);
 		if($save == '1'){
@@ -182,6 +184,12 @@ class Api extends Controller
 					$file_ktp = $request->file('formulir');
 					
 					$save_ktp = M_api::upload_dokumen($file_ktp, $nama_file_formulir , 'formulir');		        
+				}
+				if($request->hasFile('pernyataan')) {
+
+					$file_pernyataan = $request->file('pernyataan');
+					
+					$save_pernyataan = M_api::upload_dokumen($file_pernyataan, $nama_file_pernyataan , 'pernyataan');		        
 				}
 
 				
